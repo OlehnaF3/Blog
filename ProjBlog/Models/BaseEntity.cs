@@ -1,0 +1,13 @@
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ProjBlog.Models
+{
+    public abstract class BaseEntity : IEntity
+    {
+        public int Id { get; set; }
+
+        [Column("created_at")]
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    }
+}
