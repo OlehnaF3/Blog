@@ -51,7 +51,7 @@ builder.Configuration
     .AddJsonFile($"appsettings.json", optional: false, reloadOnChange: true)
     .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true)
     .AddEnvironmentVariables();
-string connection = builder.Configuration.GetConnectionString("DefaultConnection")?? throw new Exception();
+string connection = builder.Configuration.GetConnectionString("DefaultConnection")?? throw new Exception("Connection string is empty,check appsettings.json");
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
