@@ -40,9 +40,9 @@ namespace ProjBlog.Controllers
                     return NotFound("RoleUser not found");
 
                 var role = await _unitOfWork.Role.GetByIdAsync(roleUser.RolesId);
-                _logger.LogInformation($"{user.Id},\n{user.Username},\n{user.Email},\n{user.RoleUserId},\n{roleUser.UserId},\n{roleUser.RolesId},\n{role.Name}");
                 if (role == null)
                     return NotFound("Role not found");
+                _logger.LogInformation($"{user.Id},\n{user.Username},\n{user.Email},\n{user.RoleUserId},\n{roleUser.UserId},\n{roleUser.RolesId},\n{role.Name}");
 
                 if (Hasher.Verify(request.Password, user.PasswordHash))
                 {

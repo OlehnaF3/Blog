@@ -1,5 +1,4 @@
-﻿using ProjBlog.Models;
-using ProjBlog.Repository;
+﻿using ProjBlogDb.Models;
 
 namespace ProjBlog.Repository
 {
@@ -7,6 +6,5 @@ namespace ProjBlog.Repository
     {
         Task<Tag?> GetByNameAsync(string name, CancellationToken cancellationToken = default);
         Task<bool> NameExistsAsync(string name, CancellationToken cancellationToken = default);
-        Task<IEnumerable<Tag>> GetPopularTagsAsync(int count, CancellationToken cancellationToken = default);
     }
 }

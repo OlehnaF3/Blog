@@ -1,4 +1,4 @@
-﻿namespace ProjBlog.Models
+﻿namespace ProjBlogDb.Models
 {
     using System;
     using System.Collections.Generic;

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ProjBlog.DbContext;
-using ProjBlog.Models;
+using ProjBlogDb.DbContext;
+using ProjBlogDb.Models;
 using ProjBlog.Repository;
 
 namespace ProjBlog.Repository
@@ -18,20 +18,6 @@ namespace ProjBlog.Repository
         public async Task<bool> NameExistsAsync(string name, CancellationToken cancellationToken = default)
         {
             return await _dbSet.AnyAsync(t => t.Name == name, cancellationToken);
-        }
-
-        public async Task<IEnumerable<Tag>> GetPopularTagsAsync(int count, CancellationToken cancellationToken = default)
-        {
-            return await _dbSet
-                .Select(t => new
-                {
-                    Tag = t,
-                    ArticleCount = t.ArticleTags.Count
-                })
-                .OrderByDescending(x => x.ArticleCount)
-                .Select(x => x.Tag)
-                .Take(count)
-                .ToListAsync(cancellationToken);
         }
     }
 }

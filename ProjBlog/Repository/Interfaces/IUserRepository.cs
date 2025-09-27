@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
-using ProjBlog.Models;
+using ProjBlogDb.Models;
 
 namespace ProjBlog.Repository
 {
@@ -10,6 +10,6 @@ namespace ProjBlog.Repository
         Task<User?> GetByEmailAsync(string email, CancellationToken cancellationToken = default);
         Task<bool> UsernameExistsAsync(string username, CancellationToken cancellationToken = default);
         Task<bool> EmailExistsAsync(string email, CancellationToken cancellationToken = default);
-        public Task<EntityEntry<User>?> AddAsync(User user, CancellationToken cancellationToken = default);
+        public new Task<EntityEntry<User>?> AddAsync(User user, CancellationToken cancellationToken = default);
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace ProjBlog.Models
+namespace ProjBlogDb.Models
 {
     public class ArticleTag : BaseEntity
     {
@@ -10,6 +10,6 @@ namespace ProjBlog.Models
         // Навигационные свойства
         public virtual Article Article { get; set; } = null!;
         [JsonIgnore]
-        public virtual ICollection<Tag> Tags { get; set; } = new List<Tag>();
+        public virtual ICollection<Tag> Tag { get; set; } = new List<Tag>();
     }
 }

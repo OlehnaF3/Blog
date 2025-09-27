@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProjBlog.Controllers.RequestForm;
-using ProjBlog.Models;
+using ProjBlogDb.Models;
 using ProjBlog.Repository;
 
 namespace ProjBlog.Controllers

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ProjBlog.Models
+namespace ProjBlogDb.Models
 {
     public abstract class BaseEntity : IEntity
     {

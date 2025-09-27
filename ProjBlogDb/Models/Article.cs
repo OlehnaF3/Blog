@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace ProjBlog.Models
+namespace ProjBlogDb.Models
 {
     public class Article : BaseEntity
     {
@@ -14,7 +14,7 @@ namespace ProjBlog.Models
 
         public int CommentsId { get; set; }
 
-        public int ArticleTagId { get; set; }
+        public int ArticleTagsId { get; set; }
 
         // Навигационные свойства
         [JsonIgnore]

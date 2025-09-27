@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ProjBlog.DbContext;
-using ProjBlog.Models;
+using ProjBlogDb.DbContext;
+using ProjBlogDb.Models;
 
 namespace ProjBlog.Repository
 {
@@ -11,7 +11,7 @@ namespace ProjBlog.Repository
             
         }
 
-        public async Task<Role> GetRoleByRolename(string rolename, CancellationToken cancellation = default)
+        public async Task<Role?> GetRoleByRolename(string rolename, CancellationToken cancellation = default)
         {
             return await _dbSet.FirstOrDefaultAsync(r => r.Name == rolename, cancellation);
         }

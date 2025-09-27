@@ -1,4 +1,4 @@
-﻿using ProjBlog.Models;
+﻿using ProjBlogDb.Models;
 using System.Linq.Expressions;
 
 namespace ProjBlog.Repository

@@ -1,8 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using ProjBlog.DbContext;
-using ProjBlog.Models;
-using ProjBlog.Repository   ;
+﻿using Microsoft.EntityFrameworkCore;    
+using ProjBlogDb.Models;
+using ProjBlog.Repository;
 using System.Linq.Expressions;
+using ProjBlogDb.DbContext;
 
 namespace ProjBlog.Repository
 {

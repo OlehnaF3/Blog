@@ -1,6 +1,4 @@
-﻿
-
-using ProjBlog.Repository.Interfaces;
+﻿using ProjBlog.Repository.Interfaces;
 
 namespace ProjBlog.Repository
 {

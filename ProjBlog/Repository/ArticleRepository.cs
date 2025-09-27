@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ProjBlog.DbContext;
-using ProjBlog.Models;
+using ProjBlogDb.DbContext;
+using ProjBlogDb.Models;
 
 namespace ProjBlog.Repository
 {
@@ -23,7 +23,7 @@ namespace ProjBlog.Repository
                 .Where(a => a.IsPublished)
                 .Include(a => a.Author)
                 .Include(a => a.ArticleTags)
-                    .ThenInclude(at => at.Tags)
+                    .ThenInclude(at => at.Tag)
                 .OrderByDescending(a => a.PublishedAt)
                 .ToListAsync(cancellationToken);
         }
@@ -33,7 +33,7 @@ namespace ProjBlog.Repository
             return await _dbSet
                 .Include(a => a.Author)
                 .Include(a => a.ArticleTags)
-                    .ThenInclude(at => at.Tags)
+                    .ThenInclude(at => at.Tag)
                 .Include(a => a.Comments)
                 .OrderByDescending(a => a.CreatedAt)
                 .ToListAsync(cancellationToken);
@@ -53,7 +53,7 @@ namespace ProjBlog.Repository
             return await _dbSet
                 .Include(a => a.Author)
                 .Include(a => a.ArticleTags)
-                    .ThenInclude(at => at.Tags)
+                    .ThenInclude(at => at.Tag)
                 .Include(a => a.Comments)
                     .ThenInclude(c => c.User)
                 .FirstOrDefaultAsync(a => a.Id == id, cancellationToken);

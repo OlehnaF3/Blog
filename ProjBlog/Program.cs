@@ -3,8 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using ProjBlog;
-using ProjBlog.DbContext;
+using ProjBlogDb.DbContext;
 using ProjBlog.Repository;
 using ProjBlog.Services;
 using SQLitePCL;
@@ -45,22 +44,25 @@ builder.Services.AddSwaggerGen(setupAction =>
 });
 // Регистрация сервиса
 builder.Services.AddScoped<IJwtService, JwtService>();
-// Add services to the container.
 builder.Services.AddControllersWithViews();
 Batteries.Init();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-string? connection = Configuration.Config.GetConnectionString("DefaultConnection");
+builder.Configuration
+    .AddJsonFile($"appsettings.json", optional: false, reloadOnChange: true)
+    .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true)
+    .AddEnvironmentVariables();
+string connection = builder.Configuration.GetConnectionString("DefaultConnection")?? throw new Exception();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     options.TokenValidationParameters = new TokenValidationParameters()
     {
         ValidateIssuer = true,
-        ValidIssuer = Configuration.Config["KeySettings:ISSUER"],
+        ValidIssuer = builder.Configuration["KeySettings:ISSUER"],
         ValidateAudience = true,
-        ValidAudience = Configuration.Config["KeySettings:AUDIENCE"],
+        ValidAudience = builder.Configuration["KeySettings:AUDIENCE"],
         ValidateLifetime = true,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration.Config["KeySettings:Key"])),
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["KeySettings:Key"]?? throw new Exception("SecretKey is null"))),
         ValidateIssuerSigningKey = true,
         ClockSkew = TimeSpan.Zero
 

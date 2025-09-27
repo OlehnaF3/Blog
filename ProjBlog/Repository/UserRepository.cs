@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using ProjBlog.DbContext;
-using ProjBlog.Models;
+using ProjBlogDb.DbContext;
+using ProjBlogDb.Models;
 namespace ProjBlog.Repository
 {
     public class UserRepository : Repository<User>, IUserRepository
@@ -33,7 +33,7 @@ namespace ProjBlog.Repository
             return await _dbSet.FirstOrDefaultAsync(u => u.Id == id, cancellation);
         }
 
-        async Task<EntityEntry<User>?> IUserRepository.AddAsync(User user, CancellationToken cancellationToken = default)
+        async Task<EntityEntry<User>?> IUserRepository.AddAsync(User user, CancellationToken cancellationToken)
         {
             return await _dbSet.AddAsync(user, cancellationToken);
         }

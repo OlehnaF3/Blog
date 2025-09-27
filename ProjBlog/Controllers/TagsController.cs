@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProjBlog.Controllers.RequestForm;
-using ProjBlog.Models;
+using ProjBlogDb.Models;
 using ProjBlog.Repository;
 
 namespace ProjBlog.Controllers
@@ -35,22 +35,22 @@ namespace ProjBlog.Controllers
             }
         }
 
-        // GET: api/tags/popular
-        [HttpGet("popular")]
-        public async Task<IActionResult> GetPopularTags([FromQuery] int count = 10,
-            CancellationToken cancellationToken = default)
-        {
-            try
-            {
-                var tags = await _unitOfWork.Tags.GetPopularTagsAsync(count, cancellationToken);
-                return Ok(tags);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error getting popular tags");
-                return StatusCode(500, "Internal server error");
-            }
-        }
+        //// GET: api/tags/popular
+        //[HttpGet("popular")]
+        //public async Task<IActionResult> GetPopularTags([FromQuery] int count = 10,
+        //    CancellationToken cancellationToken = default)
+        //{
+        //    try
+        //    {
+        //        var tags = await _unitOfWork.Tags.GetPopularTagsAsync(count, cancellationToken);
+        //        return Ok(tags);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _logger.LogError(ex, "Error getting popular tags");
+        //        return StatusCode(500, "Internal server error");
+        //    }
+        //}
 
         // GET: api/tags/5
         [HttpGet("{id}")]

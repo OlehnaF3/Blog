@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ProjBlog.DbContext;
-using ProjBlog.Models;
+using ProjBlogDb.DbContext;
+using ProjBlogDb.Models;
 
 namespace ProjBlog.Repository
 {

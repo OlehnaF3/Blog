@@ -1,6 +1,6 @@
 ﻿using clickertime.Hashers;
 using Microsoft.AspNetCore.Mvc;
-using ProjBlog.Models;
+using ProjBlogDb.Models;
 using ProjBlog.Repository;
 
 namespace ProjBlog.Controllers

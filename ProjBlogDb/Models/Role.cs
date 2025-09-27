@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace ProjBlog.Models
+namespace ProjBlogDb.Models
 {
     public class Role : BaseEntity
     {

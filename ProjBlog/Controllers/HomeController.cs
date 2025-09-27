@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using ProjBlog.Models;
+using ProjBlogDb.Models;
 using System.Diagnostics;
 
 namespace ProjBlog.Controllers

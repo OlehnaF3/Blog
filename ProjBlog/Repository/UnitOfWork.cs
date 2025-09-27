@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Storage;
-using ProjBlog.DbContext;
+using ProjBlogDb.DbContext;
 using ProjBlog.Repository.Interfaces;
 
 namespace ProjBlog.Repository

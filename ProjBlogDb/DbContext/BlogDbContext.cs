@@ -1,9 +1,9 @@
 ﻿
-namespace ProjBlog.DbContext
+namespace ProjBlogDb.DbContext
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.ChangeTracking;
-    using ProjBlog.Models;
+    using ProjBlogDb.Models;
     using System.Reflection;
     public class BlogDbContext : DbContext
     {
@@ -68,9 +68,6 @@ namespace ProjBlog.DbContext
                 entity.Property(t => t.CreatedAt).HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                 entity.HasIndex(t => t.Name).IsUnique();
-
-                entity.HasMany(t => t.ArticleTags)
-                .WithMany(ar => ar.Tags);
 
             });
 

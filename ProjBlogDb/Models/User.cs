@@ -2,7 +2,7 @@
 using System.Text.Json.Serialization;
 using System.Xml.Linq;
 
-namespace ProjBlog.Models
+namespace ProjBlogDb.Models
 {
     public class User : BaseEntity
     {

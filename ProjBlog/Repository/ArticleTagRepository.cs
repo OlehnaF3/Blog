@@ -1,5 +1,5 @@
-﻿using ProjBlog.DbContext;
-using ProjBlog.Models;
+﻿using ProjBlogDb.DbContext;
+using ProjBlogDb.Models;
 using ProjBlog.Repository.Interfaces;
 
 namespace ProjBlog.Repository

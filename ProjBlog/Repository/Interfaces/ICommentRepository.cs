@@ -1,4 +1,4 @@
-﻿using ProjBlog.Models;
+﻿using ProjBlogDb.Models;
 
 namespace ProjBlog.Repository
 {
