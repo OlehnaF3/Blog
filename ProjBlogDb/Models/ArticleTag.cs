@@ -8,8 +8,9 @@ namespace ProjBlogDb.Models
         public int TagId { get; set; }
 
         // Навигационные свойства
+        [JsonIgnore]
         public virtual Article Article { get; set; } = null!;
         [JsonIgnore]
-        public virtual ICollection<Tag> Tag { get; set; } = new List<Tag>();
+        public virtual Tag Tag { get; set; } = null!;
     }
 }

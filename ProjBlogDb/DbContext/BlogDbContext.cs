@@ -79,10 +79,10 @@ namespace ProjBlogDb.DbContext
                 entity.Property(at => at.TagId);
                 entity.Property(at => at.CreatedAt).HasDefaultValueSql("CURRENT_TIMESTAMP");
 
-                entity.HasOne(at => at.Article)
-                .WithMany(a => a.ArticleTags)
-                .HasForeignKey(at => at.ArticleId)
-                .OnDelete(DeleteBehavior.Cascade);
+                //entity.HasOne(at => at.Article)
+                //.WithMany(a => a.ArticleTags)
+                //.HasForeignKey(at => at.ArticleId)
+                //.OnDelete(DeleteBehavior.Cascade);
             });
 
             // Конфигурация комментария
@@ -136,7 +136,7 @@ namespace ProjBlogDb.DbContext
             });
 
             // Применение конфигураций из сборки
-            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+           // modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)

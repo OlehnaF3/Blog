@@ -5,16 +5,18 @@ namespace ProjBlogDb.Models
     public class Article : BaseEntity
     {
         public string Title { get; set; } = string.Empty;
+
         public string Content { get; set; } = string.Empty;
+
         public int AuthorId { get; set; }
+
         public virtual User Author { get; set; } = null!;
+
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
+
         public bool IsPublished { get; set; } = false;
+
         public DateTime? PublishedAt { get; set; }
-
-        public int CommentsId { get; set; }
-
-        public int ArticleTagsId { get; set; }
 
         // Навигационные свойства
         [JsonIgnore]
